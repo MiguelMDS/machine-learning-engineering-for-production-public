@@ -1,10 +1,9 @@
 import pickle
-import numpy as np
 from typing import List
+
+import numpy as np
 from fastapi import FastAPI
 from pydantic import BaseModel, conlist
-
-
 
 app = FastAPI(title="Predicting Wine Class with batching")
 
@@ -17,6 +16,7 @@ class Wine(BaseModel):
     batches: List[conlist(item_type=float, min_length=13, max_length=13)]
 
 
+# cona
 @app.post("/predict")
 def predict(wine: Wine):
     batches = wine.batches
